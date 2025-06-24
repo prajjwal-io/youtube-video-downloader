@@ -1,0 +1,77 @@
+# YouTube Downloader - Git Ignore File
+
+# Ignore all files in downloads folder
+downloads/
+
+# Ignore all video files (common formats)
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.flv
+*.wmv
+*.webm
+*.m4v
+*.3gp
+*.ogv
+
+# Ignore all audio files (in case of audio-only downloads)
+*.mp3
+*.aac
+*.ogg
+*.wav
+*.flac
+*.m4a
+*.wma
+
+# Ignore subtitle files
+*.srt
+*.vtt
+*.ass
+*.ssa
+
+# Ignore thumbnail files that yt-dlp might download
+*.jpg
+*.jpeg
+*.png
+*.webp
+
+# Ignore info/description files that yt-dlp might create
+*.info.json
+*.description
+*.annotations.xml
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.part
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environment
+venv/
+env/
+.env
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Log files
+*.log
