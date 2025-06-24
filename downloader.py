@@ -21,11 +21,12 @@ def download_best_quality_video(url, output_path="./downloads"):
     # Create output directory if it doesn't exist
     Path(output_path).mkdir(parents=True, exist_ok=True)
     
-    # Configure for best quality download
+    # Configure for best quality download (video+audio separate then merged)
     ydl_opts = {
-        'format': 'best',
+        'format': 'bestvideo+bestaudio/best',
         'outtmpl': os.path.join(output_path, '%(title)s.%(ext)s'),
         'noplaylist': True,
+        'merge_output_format': 'mp4',  # Ensure MP4 output after merging
     }
     
     try:
