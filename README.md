@@ -86,6 +86,16 @@ python3 downloader.py 'https://www.youtube.com/watch?v=VIDEO1' 'https://www.yout
 
 ## Troubleshooting
 
+**"Unsupported URL" error:**
+Make sure you're not using backslashes in the URL:
+```bash
+# ❌ Wrong - don't escape characters with backslashes
+python3 downloader.py 'https://www.youtube.com/watch\?v\=VIDEO_ID'
+
+# ✅ Correct - use the URL exactly as it appears
+python3 downloader.py 'https://www.youtube.com/watch?v=VIDEO_ID'
+```
+
 **If you get permission errors on macOS/Linux:**
 ```bash
 python3 downloader.py 'YOUR_URL'
