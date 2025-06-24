@@ -21,17 +21,22 @@ def download_best_quality_video(url, output_path="./downloads"):
     # Create output directory if it doesn't exist
     Path(output_path).mkdir(parents=True, exist_ok=True)
     
-    # Configure for best quality download (video+audio separate then merged)
+    # Configure for best quality download with optimized merging
     ydl_opts = {
-        'format': 'bestvideo+bestaudio/best',
+        'format': 'bestvideo[height>=1080]+bestaudio/bestvideo+bestaudio/best',
         'outtmpl': os.path.join(output_path, '%(title)s.%(ext)s'),
         'noplaylist': True,
-        'merge_output_format': 'mp4',  # Ensure MP4 output after merging
+        'merge_output_format': 'mp4',
+        # Optimization options for faster processing
+        'postprocessor_args': {
+            'ffmpeg': ['-c:v', 'copy', '-c:a', 'copy']  # Copy streams, don't re-encode
+        },
+        'prefer_ffmpeg': True,
     }
     
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            print("Downloading in best quality available...")
+            print("Downloading in 1080p+ quality (optimized)...")
             ydl.download([url])
             print("✅ Download completed successfully!")
             
